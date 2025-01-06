@@ -50,7 +50,6 @@ class InterestController extends Controller
         $counterMonth = 1;
         for ($year = 1; $year <= (int)$anios; $year++) {
             for ($month = 1; $month <= 12; $month++) {
-                $counterMonth++;
                 $result->push([
                     'year' => $year,
                     'month' => $counterMonth,
@@ -58,6 +57,7 @@ class InterestController extends Controller
                     'monthName' => getMonthName($month),
                     'capital' => $capitalInicial * (1 + $interes / 100) ** ($year * $month / (12 * $year))
                 ]);
+                $counterMonth++;
             }
         }
 
